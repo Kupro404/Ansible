@@ -64,7 +64,7 @@
  
    - name: copy compose file
      ansible.builtin.copy:
-       src: /root/wordpress-compose/docker-compose.yaml
+       src: ./docker-compose.yaml
        dest: /root/wordpress-compose/docker-compose.yaml
  
     - name: run containers
@@ -77,7 +77,7 @@
  
     - name: copy nft file
       ansible.builtin.copy:
-        src: /etc/ansible/nftables.conf
+        src: ./nftables.conf
         dest: /etc/nftables.conf
  
     - name: load nft rules

@@ -1,1 +1,14 @@
+---
+- hosts: all
+  become: true
+  vars:
+    container_count: 1
+    default_container_name: docker4
+    default_container_image: debian
+    default_container_command: sleep 1
+
+  roles:
+    - dependencies
+    - docker
+    - nftables
 

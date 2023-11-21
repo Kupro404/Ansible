@@ -4,8 +4,10 @@
     state: latest
 
 - name: remove default nft conf file
-  command: "rm /etc/nftables.conf"
-
+  file:
+    path: /etc/nftables.conf
+    state: absent
+  
 - name: copy nft file
   ansible.builtin.copy:
     src: ./nftables.conf

@@ -1,0 +1,39 @@
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/debian stretch stable
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/debian bookworm stable
+    state: present
+
+- name: Update apt and install docker-compose
+  apt:
+    name: docker-compose
+    state: latest
+    update_cache: true
+
+- name: Update apt and install docker
+  apt:
+    name: docker
+    state: latest
+    update_cache: true
+
+- name: create composer dir
+  command: "mkdir /root/wordpress-compose"
+
+- name: copy compose file
+  ansible.builtin.copy:
+    src: ./docker-compose.yaml
+    dest: /root/wordpress-compose/docker-compose.yaml
+
+- name: run containers
+  command: 'docker-compose up -d'
+  args:
+    chdir: '/root/wordpress-compose'

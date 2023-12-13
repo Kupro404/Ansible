@@ -1,0 +1,5 @@
+[Targets]
+
+#replace target ip and password accordingly
+#this auth method requires sshpass package installed on host
+server1 ansible_host=[Target-IP]  ansible_ssh_pass=[Target-Password]

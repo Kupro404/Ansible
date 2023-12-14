@@ -5,7 +5,11 @@ $DB_USER: wordpress #also used for wp user
 $DB_NAME: wordpress
 
 #ntf rules vars
-$SSH_SOURCE_IP: 192.168.2.150
+$SSH_SOURCE_IP: 192.168.2.200
 
 #playbook vars
 $CONTAINER_NAME: mydocker
+
+#inventory vars
+$TARGET_IP: 192.168.2.150
+$TARGET_PASSWD: prodebian 

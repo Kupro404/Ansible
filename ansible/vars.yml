@@ -1,0 +1,11 @@
+#Docker yml vars
+$DB_ROOT_PASSWD: password
+$DB_PASSWD: wordpress #also used for wp user password
+$DB_USER: wordpress #also used for wp user
+$DB_NAME: wordpress
+
+#ntf rules vars
+$SSH_SOURCE_IP: 192.168.2.150
+
+#playbook vars
+$CONTAINER_NAME: mydocker

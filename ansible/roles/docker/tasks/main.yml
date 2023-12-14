@@ -35,7 +35,13 @@
     src: ./docker-compose.yaml
     dest: /root/wordpress-compose/docker-compose.yaml
 
-- name: run containers
-  command: 'docker-compose up -d'
-  args:
-    chdir: '/root/wordpress-compose'
+#- name: run containers
+#  command: 'docker-compose up -d'
+#  args:
+#    chdir: '/root/wordpress-compose'
+
+- name: Run containers with docker-compose
+  community.general.docker_compose:
+    project_src: '/root/wordpress-compose'
+    state: started
+

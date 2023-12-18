@@ -5,6 +5,7 @@ $DB_USER: wordpress #also used for wp user
 $DB_NAME: wordpress
 
 #ntf rules vars
+#replace with your host machine ip
 $SSH_SOURCE_IP: 192.168.2.200
 
 #playbook vars

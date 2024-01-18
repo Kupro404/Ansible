@@ -10,6 +10,6 @@ apt install sshpass -y
 ```
 The servers/targets for ansible to run can be specified in the inventory file. To run the playbook use command  
 ```
-ansible-playbook -i inventory playbook.yml
+ansible-playbook playbook.yml
 ````
 

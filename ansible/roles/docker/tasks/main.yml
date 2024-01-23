@@ -5,23 +5,17 @@
 
 - name: Add Docker Repository
   apt_repository:
-    repo: deb https://download.docker.com/linux/debian stretch stable
-    state: present
-
-- name: Add Docker Repository
-  apt_repository:
     repo: deb https://download.docker.com/linux/debian bookworm stable
     state: present
 
-- name: Update apt and install docker-compose
-  apt:
-    name: docker-compose
-    state: latest
-    update_cache: true
-
 - name: Update apt and install docker
   apt:
-    name: docker
+    name: 
+    - docker-ce 
+    - docker-ce-cli
+    - containerd.io 
+    - docker-buildx-plugin
+    - docker-compose-plugin
     state: latest
     update_cache: true
 

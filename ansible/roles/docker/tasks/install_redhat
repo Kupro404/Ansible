@@ -1,0 +1,27 @@
+- name: Install required system packages
+  dnf: 
+    pkg:
+      - yum-utils 
+    state: latest
+    update_cache: true
+
+- name: Add Docker GPG apt Key
+  yum_key: 
+    url: https://download.docker.com/linux/centos/gpg
+    state: present
+
+- name: Add Docker apt Repository
+  yum_repository: 
+    repo: https://download.docker.com/linux/centos/docker-ce.repo
+    state: present
+
+- name: install docker 
+  dnf:
+    name: 
+    - docker-ce 
+    - docker-ce-cli
+    - containerd.io 
+    - docker-buildx-plugin
+    - docker-compose-plugin
+    state: latest
+    update_cache: true

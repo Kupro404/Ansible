@@ -1,7 +1,11 @@
--name: docker installation for debian
- import_tasks: install_debian.yml
- when: ansible_distribution == "Debian"
+- name: docker installation for debian
+  import_tasks: install_debian.yml
+  when: ansible_distribution == "Debian"
+ 
+- name: docker installation for redhat
+  import_tasks: install_redhat.yml
+  when: ansible_distribution == "RedHat"
 
--name: install and load nft rules
- import_tasks: basic_rules.yml
- tags: nft 
+- name: install and load nft rules
+  import_tasks: basic_rules.yml
+  tags: nft

@@ -1,15 +1,14 @@
 ---
 - hosts: targets
   become: true
+  roles:
+    - docker
+    
   #vars:
    # container_count: 1
     #default_container_name: $CONTAINER_NAME
     #default_container_image: debian
     #default_container_command: sleep 1
-  
-  roles:
-    - docker
-    - nftables
 
 - name: create composer dir
   file:

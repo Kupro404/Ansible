@@ -24,7 +24,7 @@
 - name: Run containers with docker-compose
   community.general.docker_compose:
     project_src: '/root/wordpress-compose'
-    state: started
+    state: start_wp
 
     
 

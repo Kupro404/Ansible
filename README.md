@@ -3,16 +3,11 @@ This repo includes an ansible playbook to create two containers one for wordpres
 ```
 --skip-tags start_wp
 ```
-and you can also avoid copying and loading the nft rules with 
+and you can also avoid copying and loading the nft rules with the bellow tags
 ```
---skip-tags load_nft 
-
-
-
-
-
-
-
+--skip-tags nft
+--skip-tags load_nft
+```
 For the authentication method used in this playbook the sshpass package must first be installed on the ansible host.
 ```
 apt install sshpass -y 

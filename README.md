@@ -8,6 +8,8 @@ and you can also avoid copying and loading the nft rules with the bellow tags
 --skip-tags nft
 --skip-tags load_nft
 ```
+Have in mind that skipping to start the containers will also result in not building them so you will have to do that manually when needed.
+
 For the authentication method used in this playbook the sshpass package must first be installed on the ansible host.
 ```
 apt install sshpass -y 

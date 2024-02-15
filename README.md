@@ -19,3 +19,4 @@ The servers/targets for ansible to run can be specified in the inventory file. T
 ansible-playbook playbook.yml
 ````
 
+This playbook can work for Debian and Redhat systems

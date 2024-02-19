@@ -1,5 +1,5 @@
 # Ansible-WP
-This repo includes an ansible playbook to create two containers one for wordpress and one for its database through a custom image created in the docker-compose.yaml file. Within the ansible directory there is also a docker role to install docker and docker compose if needed and it includes some basic nft rules which will  open only the relevant ports needed for your host machine and wordpress service to run properly. The wordpress container will run automatically and it will run on port 8001. You can skip starting the containers with  
+This repo includes an ansible playbook to create two containers one for wordpress and one for its database through a custom image created in the docker-compose.yaml file. Within the ansible directory there is also a docker role to install docker and docker compose if needed and it includes some basic nft rules which will  open only the relevant ports needed for your host machine and wordpress service to run properly. There is also a docker-rootless role for the rootless installation it requires though for you to change the user in the rootless_install.yml file to your user. The wordpress container will run automatically and it will run on port 8001. You can skip starting the containers with  
 ```
 --skip-tags start_wp
 ```

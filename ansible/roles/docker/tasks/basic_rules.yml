@@ -2,15 +2,10 @@
   apt:
     name: nftables
     state: latest
-
-- name: remove default nft conf file
-  file:
-    path: /etc/nftables.conf
-    state: absent
   
 - name: copy nft file
   ansible.builtin.copy:
-    src: nftables.conf
+    src: templates/nftables.conf.j2
     dest: /etc/nftables.conf
 
 - name: load nft rules

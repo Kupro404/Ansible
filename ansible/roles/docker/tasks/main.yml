@@ -1,11 +1,11 @@
 - name: docker installation for debian
-  import_tasks: /root/Ansible-WP/ansible/roles/docker/tasks/install_debian.yml
+  import_tasks: roles/docker/tasks/install_debian.yml
   when: ansible_distribution == "Debian"
  
 - name: docker installation for redhat
-  import_tasks: /root/Ansible-WP/ansible/roles/docker/tasks/install_redhat.yml
+  import_tasks: roles/docker/tasks/install_redhat.yml
   when: ansible_distribution == "RedHat"
 
 - name: install and load nft rules
-  import_tasks: /root/Ansible-WP/ansible/roles/docker/tasks/basic_rules.yml
+  import_tasks: roles/docker/tasks/basic_rules.yml
   tags: nft

@@ -1,1 +1,16 @@
+#!/usr/sbin/nft -f
+  
+table inet filter {
+        chain input {
+                type filter hook input priority 0 ; policy drop;
+  
+                ct state established,related accept
+                iif lo accept
+                #replace $SSH_SOURCE_IP in vars.yml with your ansible-host ip to keep access to the remote server
+                tcp dport 22 ip saddr $SSH_SOURCE_IP accept
+                tcp dport { 80, 443, 3306, 8000, 8001} accept
+    }
 
+        chain output {
+                type filter hook output priority 0 ; policy accept;
+    }

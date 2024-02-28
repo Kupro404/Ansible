@@ -3,21 +3,20 @@
   become: true
   roles:
     - docker
-    
-  #vars:
+  vars:
    # container_count: 1
     #default_container_name: $CONTAINER_NAME
     #default_container_image: debian
     #default_container_command: sleep 1
-
-- name: create composer dir
+tasks:
+- name: create compose dir
   file:
     path: /root/wordpress-compose
     state: directory 
 
 - name: copy compose file
   ansible.builtin.copy:
-    src: ./docker-compose.yaml
+    src: docker-compose.yaml
     dest: /root/wordpress-compose/docker-compose.yaml
 
 - name: Run containers with docker-compose

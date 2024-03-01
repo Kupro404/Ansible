@@ -6,7 +6,7 @@
     update_cache: true
 
 - name: Add Docker GPG apt Key
-  yum_key: 
+  rpm_key: 
     url: https://download.docker.com/linux/centos/gpg
     state: present
 

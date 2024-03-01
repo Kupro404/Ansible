@@ -8,21 +8,21 @@
     #default_container_name: $CONTAINER_NAME
     #default_container_image: debian
     #default_container_command: sleep 1
-tasks:
-- name: create compose dir
-  file:
-    path: /root/wordpress-compose
-    state: directory 
+  tasks:
+  - name: create compose dir
+    file:
+      path: /root/wordpress-compose
+      state: directory 
 
-- name: copy compose file
-  ansible.builtin.copy:
-    src: docker-compose.yaml
-    dest: /root/wordpress-compose/docker-compose.yaml
+  - name: copy compose file
+    ansible.builtin.copy:
+      src: docker-compose.yaml
+      dest: /root/wordpress-compose/docker-compose.yaml
 
-- name: Run containers with docker-compose
-  community.general.docker_compose:
-    project_src: '/root/wordpress-compose'
-    state: start_wp
+  - name: Run containers with docker-compose
+    community.general.docker_compose:
+      project_src: '/root/wordpress-compose'
+      state: start_wp
 
     
 

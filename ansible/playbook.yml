@@ -20,7 +20,7 @@
       dest: /root/wordpress-compose/docker-compose.yaml
 
   - name: Run containers with docker-compose
-    community.general.docker_compose:
+    community.docker.docker_compose_v2:
       project_src: '/root/wordpress-compose'
       state: start_wp
 

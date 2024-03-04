@@ -8,7 +8,10 @@ and you can also avoid copying and loading the nft rules with the bellow tags
 --skip-tags nft
 --skip-tags load_nft
 ```
-Have in mind that skipping to start the containers will also result in not building them so you will have to do that manually when needed.
+Have in mind that skipping to start the containers will also result in not building them so you will have to do that manually when needed. Furthermore as the module to start the containers is a community one you will have to first install it with 
+```
+ansible-galaxy collection install community.docker
+```
 
 For the authentication method used in this playbook the sshpass package must first be installed on the ansible host.
 ```

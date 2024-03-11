@@ -4,11 +4,8 @@
   roles:
     - docker
   vars:
-   # container_count: 1
-    #default_container_name: $CONTAINER_NAME
-    #default_container_image: debian
-    #default_container_command: sleep 1
   tasks:
+  
   - name: create compose dir
     file:
       path: /root/wordpress-compose
@@ -24,6 +21,3 @@
       project_src: '/root/wordpress-compose'
       state: present 
       tags: start-wp
-
-    
-

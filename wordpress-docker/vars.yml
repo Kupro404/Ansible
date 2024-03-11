@@ -4,13 +4,9 @@ $DB_PASSWD: wordpress #also used for wp user password
 $DB_USER: wordpress #also used for wp user
 $DB_NAME: wordpress
 
-#ntf rules vars
 #replace with your host machine ip
-$SSH_SOURCE_IP: 192.168.2.200
-
-#playbook vars
-$CONTAINER_NAME: mydocker
+$SSH_SOURCE_IP: your_host_ip
 
 #inventory vars
-$TARGET_IP: 192.168.2.150
-$TARGET_PASSWD: prodebian 
+$TARGET_IP: your_target_ip
+$TARGET_PASSWD: changeme 

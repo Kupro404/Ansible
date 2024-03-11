@@ -24,10 +24,10 @@
       src: docker-compose.yaml
       dest: /root/wordpress-compose/docker-compose.yaml
 
-  - name: Run containers with docker-compose
-    community.docker.docker_compose_v2:
-      project_src: '/root/wordpress-compose'
-      state: present 
-      tags: start-wp
+  #- name: Run containers with docker-compose
+   # community.docker.docker_compose_v2:
+    #  project_src: '/root/wordpress-compose'
+     # state: present 
+     # tags: start-wp
 
     

@@ -1,5 +1,5 @@
 ---
-- hosts: targets
+- hosts: target
   become: true
   roles:
     - docker

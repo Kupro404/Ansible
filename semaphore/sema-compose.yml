@@ -18,10 +18,10 @@ services:
     volumes:
       - semaphore-mysql:/var/lib/mysql
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: semaphore
       MYSQL_USER: semaphore
-      MYSQL_PASSWORD: semaphore
+      MYSQL_PASSWORD: 12345
   semaphore:
     restart: unless-stopped
     ports:
@@ -29,18 +29,19 @@ services:
     image: semaphoreui/semaphore:latest
     environment:
       SEMAPHORE_DB_USER: semaphore
-      SEMAPHORE_DB_PASS: semaphore
+      SEMAPHORE_DB_PASS: 12345
       SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
       SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
       SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
       SEMAPHORE_DB: semaphore
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
-      SEMAPHORE_ADMIN_PASSWORD: changeme
-      SEMAPHORE_ADMIN_NAME: admin
+      SEMAPHORE_ADMIN_PASSWORD: 12345
+      SEMAPHORE_ADMIN_NAME: prodebian
       SEMAPHORE_ADMIN_EMAIL: admin@localhost
       SEMAPHORE_ADMIN: admin
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: c3bHOwIvsBZCHoaKY1ubWj3VFyxXSJnLc72iIwO/Pl0=
       ANSIBLE_HOST_KEY_CHECKING: "false"   #needed for ssh connections eitherwise they wont work 
+      ANSIBLE_REMOTE_USER: root # it can be defined here or in the ui through the key store 
     depends_on:
       - mysql # for postgres, change to: postgres
 volumes:

@@ -1,7 +1,14 @@
 - hosts: all
   become: true
-  envs:
   tasks: 
 
+  - name: create semaphore dir
+    ansible.builtin.file:
+      path: /root/semaphore
+      state: directory
+    
   - name : copy compose file
+    ansible.builtin.copy:
+      src: sema-compose.yml
+      dest: /root/semaphore/sema-compose.yml
     

@@ -1,33 +1,8 @@
 ---
-- hosts: target
+- hosts: localhost 
   become: true
-  roles:
-    - docker
-  vars:
-   # container_count: 1
-    #default_container_name: $CONTAINER_NAME
-    #default_container_image: debian
-    #default_container_command: sleep 1
-  tasks:
+  tasks: 
 
-  - name: install community modules
-    raw: ansible-galaxy collection install community.docker
-    
-  
-  - name: create compose dir
-    file:
-      path: /root/wordpress-compose
-      state: directory 
-
-  - name: copy compose file
-    ansible.builtin.copy:
-      src: docker-compose.yaml
-      dest: /root/wordpress-compose/docker-compose.yaml
-
-  #- name: Run containers with docker-compose
-   # community.docker.docker_compose_v2:
-    #  project_src: '/root/wordpress-compose'
-     # state: present 
-     # tags: start-wp
-
-    
+  - name: test
+    ansible.builtin.package:
+    name: htop

@@ -3,7 +3,7 @@
   name: 
     - docker.service
     - docker.socket
-  state: stoped 
+  state: stopped 
 
 - name: run rootless installation script
   shell: /usr/bin/dockerd-rootless-setuptool.sh install

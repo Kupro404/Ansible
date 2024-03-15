@@ -17,7 +17,7 @@ services:
     image: semaphoreui/semaphore:latest
     volumes:
       - /root/semaui/.ssh:/home/semaphore/.ssh:rw
-      - /root/semaui/inventory:/home/semaphore/.ansible/inventory
+      - /root/semaui/sema-inventory:/home/semaphore/.ansible/inventory
     environment:
       SEMAPHORE_DB_USER: semaphore
       SEMAPHORE_DB_PASS: semaphore

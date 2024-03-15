@@ -13,7 +13,7 @@
 
   - name: copy compose file
     ansible.builtin.copy:
-      src: docker-compose.yaml
+      src: files/docker-compose.yaml
       dest: /root/wordpress-compose/docker-compose.yaml
 
   - name: Run containers with docker-compose

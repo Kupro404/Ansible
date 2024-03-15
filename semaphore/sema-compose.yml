@@ -1,48 +1,37 @@
 services:
-  # uncomment this section and comment out the mysql section to use postgres instead of mysql
-  #postgres:
-    #restart: unless-stopped
-    #image: postgres:14
-    #hostname: postgres
-    #volumes:
-    #  - semaphore-postgres:/var/lib/postgresql/data
-    #environment:
-    #  POSTGRES_USER: semaphore
-    #  POSTGRES_PASSWORD: semaphore
-    #  POSTGRES_DB: semaphore
-  # if you wish to use postgres, comment the mysql service section below
   mysql:
     restart: unless-stopped
     image: mysql:8.0
     hostname: mysql
     volumes:
-      - semaphore-mysql:/var/lib/mysql
+      - /root/sema_db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: semaphore
       MYSQL_USER: semaphore
-      MYSQL_PASSWORD: 12345
+      MYSQL_PASSWORD: semaphore
   semaphore:
     restart: unless-stopped
     ports:
       - 3000:3000
     image: semaphoreui/semaphore:latest
+    volumes:
+      - /root/semaui/.ssh/:/home/semaphore/.ssh:rw
+      - /root/semaui/repo/inventory:/home/semaphore/.ansible/inventory:rw
     environment:
       SEMAPHORE_DB_USER: semaphore
-      SEMAPHORE_DB_PASS: 12345
+      SEMAPHORE_DB_PASS: semaphore
       SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
       SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
       SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
       SEMAPHORE_DB: semaphore
+      ANSIBLE_HOST_KEY_CHECKING: 'false'
+      ANSIBLE_REMOTE_USER: 'root'
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
-      SEMAPHORE_ADMIN_PASSWORD: 12345
-      SEMAPHORE_ADMIN_NAME: prodebian
+      SEMAPHORE_ADMIN_PASSWORD: prodebian
+      SEMAPHORE_ADMIN_NAME: admin
       SEMAPHORE_ADMIN_EMAIL: admin@localhost
       SEMAPHORE_ADMIN: admin
-      SEMAPHORE_ACCESS_KEY_ENCRYPTION: c3bHOwIvsBZCHoaKY1ubWj3VFyxXSJnLc72iIwO/Pl0=
-      ANSIBLE_HOST_KEY_CHECKING: "false"   #needed for ssh connections eitherwise they wont work 
-      ANSIBLE_REMOTE_USER: root # it can be defined here or in the ui through the key store 
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: gs72mPntFATGJs9qK0pQ0rKtfidlexiMjYCH9gWKhTU=
     depends_on:
-      - mysql # for postgres, change to: postgres
-volumes:
-  semaphore-mysql:
+      - mysql

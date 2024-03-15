@@ -5,10 +5,13 @@
   
   - name: create dirs
     ansible.builtin.file:
-      path: /root/semaui/.ssh
+      path: {{ item.path }}         /root/semaui/.ssh
       state: directory
-      owner: 1001
+      owner: {{ item.own }}          1001
       group: root
+    loop:
+      - {path: /root/semaui/.ssh, own: 1001}
+      - {path: /root/compose-files, own: root}
 
   - name: create ssh keys
     community.crypto.openssh_keypair:
@@ -16,3 +19,8 @@
       type: ed25519
       owner: 1001
       group: root
+
+  - name: copy compose file
+    ansible.builtin.copy:
+      src: files/docker-compose.yml
+      dest: /root/compose-files

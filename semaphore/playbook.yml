@@ -1,14 +1,18 @@
-- hosts: all
+---
+- hosts: localhost
   become: true
-  tasks: 
-
-  - name: create semaphore dir
+  tasks:
+  
+  - name: create dirs
     ansible.builtin.file:
-      path: /root/semaphore
+      path: /root/semaui/.ssh
       state: directory
-    
-  - name : copy compose file
-    ansible.builtin.copy:
-      src: sema-compose.yml
-      dest: /root/semaphore/sema-compose.yml
-    
+      owner: 1001
+      group: root
+
+  - name: create ssh keys
+    community.crypto.openssh_keypair:
+      path: /root/semaui/.ssh/id_ed25519
+      type: ed25519
+      owner: 1001
+      group: root

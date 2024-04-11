@@ -1,12 +1,12 @@
 #template vars
-$DB_ROOT_PASSWD: changeme
-$DB_PASSWD: changeme #also used for wp user password
-$DB_USER: exampleuser #also used for wp user
-$DB_NAME: exampledb
-$ADMIN_MAIL: example@mail.com
-$SEMA_ADMIN_PASS: changeme
-$SEMA_INV_IP: changeme
-$SSH_SOURCE_IP: changeme
+$DB_ROOT_PASSWD: changeme  #used for both wp and sema
+$DB_PASSWD: changeme #used for both wp and sema
+$DB_USER: exampleuser #used for both wp and sema
+$DB_NAME: exampledb  #used for both wp and sema
+$ADMIN_MAIL: example@mail.com  #sema mail
+$SEMA_ADMIN_PASS: changeme  # admin password for sema
+$SEMA_INV_IP: changeme  # target ip for playbooks run through sema
+$SSH_SOURCE_IP: changeme  # your host ip for the nft file
 
 #inventory/cfg vars
 $TARGET_IP: changeme

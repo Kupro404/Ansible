@@ -13,3 +13,4 @@ $SSH_SOURCE_IP: changeme
 #inventory vars
 $TARGET_IP: changeme
 $TARGET_PASSWD: changeme 
+$PRIV_KEY_PATH: /root

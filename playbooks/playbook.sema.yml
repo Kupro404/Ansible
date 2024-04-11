@@ -1,8 +1,10 @@
 ---
 - hosts: localhost
   become: true
+  roles:
+    - docker
   tasks:
-  
+   
   - name: create dirs
     ansible.builtin.file:
       path: /root/semaui/.ssh

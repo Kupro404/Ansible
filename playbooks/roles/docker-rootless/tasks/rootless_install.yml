@@ -1,0 +1,26 @@
+- name: stop docker service 
+  ansible.builtin.service:
+    name: "{{ items }}"
+    state: stopped 
+  loop: 
+    - docker.service
+    - docker.socket
+
+- name: install uidmap package
+  ansible.builtin.package:
+    name: uidmap     
+  
+- name: run rootless installation script
+  shell: dockerd-rootless-setuptool.sh install
+    chdir: /usr/local/bin
+  become: true
+  become_user: {{ MY_USER }} 
+
+- name: start docker service 
+  ansible.builtin.service:
+    name: "{{ items }}"
+    state: restarted
+  become: true  
+  loop: 
+    - docker.service
+    - docker.socket

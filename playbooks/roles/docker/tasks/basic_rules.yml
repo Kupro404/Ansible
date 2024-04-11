@@ -1,0 +1,13 @@
+- name: install nftables
+  pckg:
+    name: nftables
+    state: latest
+  
+- name: copy nft file
+  ansible.builtin.copy:
+    src: templates/nftables.conf.j2
+    dest: /etc/nftables.conf
+
+- name: load nft rules
+  command: "/sbin/nft -f /etc/nftables.conf"
+  tags: load_nft

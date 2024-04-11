@@ -1,2 +1,0 @@
-- name: install rootless docker
-  import_task: roles/docker-rootless/rootless_install.yml

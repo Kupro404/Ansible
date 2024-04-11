@@ -1,7 +1,0 @@
-- name: docker installation for debian
-  import_tasks: roles/docker/tasks/install_debian.yml
-  when: ansible_distribution == "Debian"
- 
-- name: docker installation for redhat
-  import_tasks: roles/docker/tasks/install_redhat.yml
-  when: ansible_distribution == "RedHat"

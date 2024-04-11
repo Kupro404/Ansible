@@ -2,7 +2,8 @@ $DB_ROOT_PASSWD: changeme
 $DB_PASSWD: changeme #also used for wp user password
 $DB_USER: exampleuser #also used for wp user
 $DB_NAME: exampledb
-$ADMIN_MAIL: EXAMPLE@MAIL.COM
+$ADMIN_MAIL: example@mail.com
+$SEMA_ADMIN_PASS:
 
 #replace with your host machine ip
 $SSH_SOURCE_IP: changeme

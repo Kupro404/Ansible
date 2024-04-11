@@ -6,8 +6,8 @@ services:
     volumes:
       - /root/semaui/sema_db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: {{ $DB_ROOT_PASSWD }}
-      MYSQL_DATABASE: {{ $DB_NAME }}
+      MYSQL_ROOT_PASSWORD: {{ DB_ROOT_PASSWD }}
+      MYSQL_DATABASE: {{ DB_NAME }}
       MYSQL_USER: {{ DB_USER }}
       MYSQL_PASSWORD: {{ DB_PASSWD }}
   semaphore:
@@ -19,18 +19,18 @@ services:
       - /root/semaui/.ssh:/home/semaphore/.ssh:rw
       - /root/semaui/sema-inventory:/home/semaphore/.ansible/inventory
     environment:
-      SEMAPHORE_DB_USER: {{ $DB_USER }}
-      SEMAPHORE_DB_PASS: {{ $DB_PASSWD }}
+      SEMAPHORE_DB_USER: {{ DB_USER }}
+      SEMAPHORE_DB_PASS: {{ DB_PASSWD }}
       SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
       SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
       SEMAPHORE_DB_DIALECT: mysql # for postgres, change to: postgres
-      SEMAPHORE_DB: {{ $DB_NAME }}
+      SEMAPHORE_DB: {{ DB_NAME }}
       ANSIBLE_HOST_KEY_CHECKING: 'false'
       ANSIBLE_REMOTE_USER: 'root'
       SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
-      SEMAPHORE_ADMIN_PASSWORD: {{ $SEMA_ADMIN_PASS }}
+      SEMAPHORE_ADMIN_PASSWORD: {{ SEMA_ADMIN_PASS }}
       SEMAPHORE_ADMIN_NAME: admin
-      SEMAPHORE_ADMIN_EMAIL: {{ $ADMIN_MAIL }}
+      SEMAPHORE_ADMIN_EMAIL: {{ ADMIN_MAIL }}
       SEMAPHORE_ADMIN: admin
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: gs72mPntFATGJs9qK0pQ0rKtfidlexiMjYCH9gWKhTU=
     depends_on:

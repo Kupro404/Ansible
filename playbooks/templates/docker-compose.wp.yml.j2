@@ -4,10 +4,10 @@
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWD
-      MYSQL_DATABASE: $DB_NAME
-      MYSQL_USER: $DB_USER
-      MYSQL_PASSWORD: $DB_PASSWD
+      MYSQL_ROOT_PASSWORD: {{ DB_ROOT_PASSWD }}
+      MYSQL_DATABASE: {{ DB_NAME }}
+      MYSQL_USER: {{ DB_USER }}
+      MYSQL_PASSWORD: {{ DB_PASSWD }}
     networks:
       - wpsite
     
@@ -21,8 +21,8 @@
    volumes: ['./:/var/www/html']
    environment:
      WORDPRESS_DB_HOST: db:3306
-     WORDPRESS_DB_USER: $DB_USER
-     WORDPRESS_DB_PASSWORD: $DB_PASSWD
+     WORDPRESS_DB_USER: {{ DB_USER }}
+     WORDPRESS_DB_PASSWORD: {{ DB_PASSWD }}
     networks:
         - wpsite
 networks:

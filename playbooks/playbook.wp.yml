@@ -3,7 +3,6 @@
   become: true
   roles:
     - docker
-  vars:
   tasks:
   
   - name: create compose dir
@@ -13,8 +12,8 @@
 
   - name: copy compose file
     ansible.builtin.copy:
-      src: templates/docker-compose.wp.yaml
-      dest: /root/wordpress-compose/docker-compose.yaml
+      src: templates/docker-compose.wp.j2.yml
+      dest: /root/wordpress-compose/docker-compose.yml
 
   - name: Run containers with docker-compose
     community.docker.docker_compose_v2:

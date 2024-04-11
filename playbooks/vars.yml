@@ -1,8 +1,8 @@
-#Docker yml vars
 $DB_ROOT_PASSWD: changeme
 $DB_PASSWD: changeme #also used for wp user password
 $DB_USER: exampleuser #also used for wp user
 $DB_NAME: exampledb
+$ADMIN_MAIL: EXAMPLE@MAIL.COM
 
 #replace with your host machine ip
 $SSH_SOURCE_IP: changeme
